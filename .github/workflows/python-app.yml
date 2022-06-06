@@ -5,12 +5,18 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build1:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      run: echo "hello world"
+   
+  build2:
+    runs-on: ubuntu-latest
+    steps:
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -20,3 +26,4 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+  
